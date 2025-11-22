@@ -1,0 +1,30 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.29.1",
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "cashfree": "^1.0.1",
+    "cashfree-pg": "^5.0.8",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.15.0",
+    "nodemon": "^3.1.10",
+    "sequelize": "^6.37.7",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "sib-api-v3-sdk": "^8.5.0"
+  },
+  "description": ""
+}

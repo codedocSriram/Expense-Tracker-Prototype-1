@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cashfree Checkout Integration</title>
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .card {
+        width: 600px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        background: #5cb85c;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Cashfree Checkout Integration</h1>
+    </header>
+
+    <div class="card">
+      <h3>Click below to open the checkout page in current tab</h3>
+      <button id="renderBtn">Pay Now</button>
+
+      <div id="cf_checkout"></div>
+    </div>
+
+    <script src="../public/cashfreeWeb_self.js"></script>
+
+    <script>
+      const cashfree = Cashfree({
+        mode: "sandbox"
+      });
+
+      document
+        .getElementById("renderBtn")
+        .addEventListener("click", async () => {
+          const userToken = localStorage.getItem("token");
+          try {
+            const response = await fetch("http://localhost:4000/api/pay", {
+              method: "POST",
+              headers: { Autherization: userToken }
+            });
+
+            const data = await response.json();
+            const paymentSessionId = data.paymentSessionId;
+            const orderId = data.orderId;
+
+            let checkoutOptions = {
+              paymentSessionId: paymentSessionId,
+
+              redirectTarget: "_modal"
+            };
+
+            const result = await cashfree.checkout(checkoutOptions);
+
+            if (result.error) {
+              console.log(
+                "User has closed the popup or there is some payment error, Check for Payment Status"
+              );
+              console.log(result.error);
+            }
+            if (result.redirect) {
+              console.log("Payment will be redirected");
+            }
+            if (result.paymentDetails) {
+              console.log(
+                "Payment has been completed, Check for Payment Status"
+              );
+              console.log(result.paymentDetails.paymentMessage);
+
+              const response = await fetch(
+                `http://localhost:4000/api/payment-status/${orderId}`,
+                {
+                  method: "GET"
+                }
+              );
+              const data = await response.json();
+              console.log(data);
+              if (data.orderStatus == "Success") {
+                window.location.href = "../expenses.html";
+                return;
+              }
+              alert("Your payment is " + data.orderStatus);
+            }
+          } catch (err) {
+            console.error("Error:", err);
+          }
+        });
+    </script>
+  </body>
+</html>

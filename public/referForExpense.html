@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add your expense</title>
+  </head>
+  <body>
+    <div>
+      <form onsubmit="handleExpenseSubmit(event)">
+        <div>
+          <label for="expenseamount">Expense Amount: </label>
+          <input id="expenseamount" type="number" placeholder="Enter amount" />
+        </div>
+        <div>
+          <label for="category">Category: </label>
+          <select name="category" id="category">
+            <option value="Food">Food</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="description">Description: </label>
+        </div>
+        <div>
+          <textarea
+            id="description"
+            placeholder="Enter Description"
+            rows="5"
+            cols="40"
+            maxlength="500"
+          ></textarea>
+        </div>
+        <div>
+          <input id="submit-btn" type="submit" value="Add Expense" />
+        </div>
+      </form>
+      <br />
+      <div>
+        <button id="premiumbutton" onclick="handlePremiumButton()">
+          Buy Premium
+        </button>
+        <p id="premium"></p>
+        <div id="lbbuttondiv">
+          <button onclick="showExpenseReport()">View Expense Report</button>
+        </div>
+      </div>
+      <h3>Your Expenses</h3>
+      <ul id="userexpenselist"></ul>
+      <h3 id="lbheading"></h3>
+      <ul id="leaderboardlist"></ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"></script>
+    <script src="./handleExpense.js"></script>
+  </body>
+</html>

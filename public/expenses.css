@@ -1,0 +1,480 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header,
+footer {
+  background-color: #2e8e87;
+  color: white;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header button {
+  background-color: #46b7af;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+main {
+  padding: 2em;
+}
+
+.expense_heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.expense_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.expense-item-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #2e8e87;
+  color: white;
+}
+
+.expense-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.thisDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.thisDivChild {
+  width: 40%;
+}
+.expense-item button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.expense-item button:hover {
+  background-color: #e60000;
+}
+
+.pageBtn {
+  width: 50px;
+  height: 27px;
+  border-radius: 4px;
+  border: none;
+  background-color: #46b7af;
+  color: white;
+}
+.pageBtn:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+.expenseLimitDiv {
+  margin-top: 15px;
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1em;
+  padding: 0.5em 1em;
+  background-color: #46b7af;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fixed-button:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+dialog {
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 450px;
+}
+
+dialog h2 {
+  margin: 0 0 1em;
+}
+
+dialog button {
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+dialog button:hover {
+  background-color: #0056b3;
+}
+
+#tip_div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Add spacing between fields */
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Style the expense form */
+#expenseForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Add spacing between fields */
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#expenseForm label {
+  font-weight: bold;
+}
+
+#expenseForm input,
+#expenseForm select,
+#expenseForm textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#expenseForm button[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #46b7af;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#expenseForm button[type="submit"]:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+/* Align the "Close" button at the bottom */
+#closeDialogButton {
+  font-size: 35px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  background-color: red !important;
+}
+
+#closeDialogButton:hover {
+  background-color: #a71d2a;
+}
+
+.leaderBoardBtn {
+  margin-top: 15px;
+  height: 27px;
+  background-color: #46b7af;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+.leaderBoardBtn:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+.aiTipBtn {
+  margin-top: 15px;
+  height: 27px;
+  background-color: #46b7af;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+.aiTipBtn:hover {
+  background-color: #58e8de;
+  cursor: pointer;
+  color: black;
+}
+
+.premiumButton {
+  margin-top: 15px;
+  height: 27px;
+  background-color: orange;
+  border: none;
+  border-radius: 4px;
+  color: black;
+}
+
+.premiumButton:hover {
+  background-color: rgb(189, 127, 11);
+  cursor: pointer;
+  color: white;
+}
+
+.premium-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyExpense {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.leaderBoardBtnDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.leaderBoardBtnDiv button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+header button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.premium-button-div button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: rgb(189, 161, 6);
+  color: rgb(0, 0, 0);
+}
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #2e8e87;
+  color: white;
+}
+
+/* ...existing CSS... */
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+
+  header,
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header button {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .expense_heading {
+    gap: 5px;
+  }
+
+  .expense-item-heading {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .thisDiv {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .thisDivChild {
+    width: 100%;
+  }
+
+  .pagination-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .expenseLimitDiv {
+    text-align: center;
+  }
+
+  .leaderBoardBtnDiv {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .premium-button-div {
+    text-align: center;
+  }
+
+  dialog {
+    width: 90%;
+  }
+
+  #expenseForm {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .fixed-button {
+    width: auto;
+    padding: 0.5em 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  header,
+  footer {
+    padding: 10px;
+  }
+
+  .expense-item-heading {
+    font-size: 14px;
+  }
+
+  .expense-item {
+    font-size: 14px;
+  }
+
+  .pageBtn {
+    width: 40px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .leaderBoardBtn,
+  .aiTipBtn,
+  .premiumButton {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  #expenseForm input,
+  #expenseForm select,
+  #expenseForm textarea {
+    font-size: 14px;
+  }
+
+  #expenseForm button[type="submit"] {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
+  dialog {
+    padding: 1em;
+  }
+
+  .pagination-controls {
+    gap: 5px;
+  }
+
+  .leaderBoardBtnDiv {
+    gap: 5px;
+  }
+}

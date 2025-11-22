@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Report</title>
+    <link rel="stylesheet" href="./expenseReport.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <h1>Expense Report</h1>
+    <table id="full_table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Expense</th>
+        </tr>
+      </thead>
+      <tbody id="table_body"></tbody>
+    </table>
+    <div id="add_button_div"></div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"></script>
+
+  <script src="./handleExpenseReport.js"></script>
+</html>

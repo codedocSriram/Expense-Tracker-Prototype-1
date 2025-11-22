@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./expenses.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Expense Tracker</h1>
+      <div>
+        <button id="download_btn" disabled onclick="navToReportPage()">Download List</button>
+        <button id="logoutButton" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="premium-button-div">
+        <button id="premiumbutton" class="premiumButton" onclick="buyPremium()">
+          Buy Premium
+        </button>
+      </div>
+      
+      <div class="expense_container" id="userexpenselist"></div>
+
+      <div id="paginationControls" class="pagination-controls">
+        <button
+          class="pageBtn"
+          id="prevPage"
+          disabled
+          onclick="renderPage(event)"
+        >
+          Prev
+        </button>
+        <span id="pageInfo">Page 1</span>
+        <button
+          class="pageBtn"
+          id="nextPage"
+          disabled
+          onclick="renderPage(event)"
+        >
+          Next
+        </button>
+      </div>
+      <div class="expenseLimitDiv">
+        <label for="pageLimit">Expense per page:</label>
+        <select
+          id="pageLimit"
+          onchange="renderPage(event)"
+          name="selectedOption"
+        >
+          <option value="2">2</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div class="leaderBoardBtnDiv">
+        <button class="leaderBoardBtn" id="leader_board_btn">
+          Show leader board
+        </button>
+        <button class="aiTipBtn" disabled id="ai_tip_btn" onclick="openInvestmentTip()">
+          Investment Tip
+        </button>
+      </div>
+
+      <div class="expense_container" id="leaderboardlist"></div>
+    </main>
+
+    <button
+      id="openDialogButton"
+      class="fixed-button"
+      onclick="openExpenseForm()"
+    >
+      Add Expense
+    </button>
+
+    <dialog id="expenseDialog">
+      <div id="expenseFormDiv">
+        <button id="closeDialogButton" onclick="closeExpenseForm()">
+          &times;
+        </button>
+
+        <h2>Add Expense</h2>
+        <form id="expenseForm" onsubmit="handleExpenseSubmit(event)">
+          <label for="expenseamount">Expense Amount: </label>
+          <input id="expenseamount" type="number" placeholder="Enter amount" />
+
+          <label for="category">Category: </label>
+          <select name="category" id="category">
+            <option value="Food">Food</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            placeholder="Enter Description"
+            rows="5"
+            maxlength="500"
+          ></textarea>
+
+          <button type="submit">Add Expense</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog id="investment_tip_dialog">
+      <div id="investment_tip_div">
+        <button id="closeDialogButton" onclick="closeInvestmentTip()">
+          &times;
+        </button>
+        <div id="tip_div">
+          
+        </div>
+        </div>
+      </div>
+    </dialog>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"></script>
+    <script src="./handleExpense.js"></script>
+  </body>
+</html>
