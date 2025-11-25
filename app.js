@@ -4,8 +4,10 @@ const expenseRouter = require("./routes/expenseRouter");
 const paymentRouter = require("./routes/paymentRouter");
 const db = require("./utils/dbConnection");
 const cors = require("cors");
+require("dotenv").config();
 require("./models");
 const app = express();
+const PORT = Number(process.env.PORT);
 
 app.use(express.json());
 app.use(cors());
@@ -20,10 +22,11 @@ app.use("/api", paymentRouter);
 db
   .sync({ force: false })
   .then(() => {
-    app.listen(4000, () => {
-      console.log("Server is running in port 4000");
+    app.listen(PORT, () => {
+      console.log(`Server is running in port ${PORT}`);
     });
   })
   .catch(err => {
     console.log(err);
   });
+
