@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize("testdb", "root", "abcd1234", {
-  hose: "localhost",
+  host: "localhost",
   dialect: "mysql"
 });
 
@@ -15,3 +15,4 @@ const sequelize = new Sequelize("testdb", "root", "abcd1234", {
 })();
 
 module.exports = sequelize;
+
